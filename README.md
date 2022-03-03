@@ -2,7 +2,7 @@
 one line
 duble line
 3 line
-
+4 line
 #Игнорируются: 
 #Локальные каталоги (.terraform)
 #файлы (.tfstate)
