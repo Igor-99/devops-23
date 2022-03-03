@@ -1,5 +1,7 @@
 # devops-17
 one line
+duble line
+
 #Игнорируются: 
 #Локальные каталоги (.terraform)
 #файлы (.tfstate)
