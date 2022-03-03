@@ -1,6 +1,7 @@
 # devops-17
 one line
 duble line
+3 line
 
 #Игнорируются: 
 #Локальные каталоги (.terraform)
