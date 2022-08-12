@@ -12,10 +12,13 @@ Ansible не требует установки специального окру
 
 # Задача 3 
 >VirtualBox
+
 ![virbox](https://user-images.githubusercontent.com/29104612/184291169-6bfa8387-bc8b-4f44-924f-40802d72310b.png)
 >Vagrant
+
 ![vagrant](https://user-images.githubusercontent.com/29104612/184291182-6e22d27c-fb86-475c-a51e-3cea2bcfceaa.png)
 >Ansible
+
 Пришлось руками устанавливать
 ![ansible](https://user-images.githubusercontent.com/29104612/184291192-ac9c1490-50b9-4f44-afc4-d6956b2fbfd5.png)
 
