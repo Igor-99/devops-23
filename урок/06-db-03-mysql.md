@@ -142,7 +142,7 @@ CREATE USER 'test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test-pa
 ```
 Предоставим привелегии пользователю test на операции SELECT:  
 ```
-GRANT SELECT ON lodyanyy_db.* to 'test'@'localhost';
+GRANT SELECT ON revinii_db.* to 'test'@'localhost';
 ```  
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получим данные по пользователю test:
 ```
