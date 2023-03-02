@@ -281,6 +281,6 @@ pg_dump -U postgres -d test_database >test_database_dump.sql
 ```  
 Уникальность столбца title можно выполнить следующим образом:
 ```
-test_database=# CREATE unique INDEX title_un ON public.orders_2(title);
-CREATE INDEX
+Нужно добавить критерий UNIQUE
+title character varying(80) NOT NULL UNIQUE
 ```
