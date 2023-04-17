@@ -8,6 +8,94 @@ core_fraction	Базовый уровень производительности
 ## Задание 4
 ![s3](https://user-images.githubusercontent.com/29104612/231841330-fc205e51-88c0-4b06-87a0-cf061df18df2.png)
 
+## Задание 5
+
+Файл locals.tf
+```
+locals {
+  first_name_vm  = "netology-${var.vpc_name}-${var.project}-${var.role[0]}"
+  second_name_vm = "netology-${var.vpc_name}-${var.project}-${var.role[1]}"
+}
+```
+Данные из файла variables.tf
+```
+variable "vpc_name" {
+  type        = string
+  default     = "develop"
+  description = "VPC network & subnet name"
+}
+
+variable "project" {
+  type        = string
+  default     = "platform"
+}
+
+variable "role" {
+  type        = list(string)
+  default     = [
+    "web",
+    "db",
+    ]
+}
+```
+
+## Задание 6
+```
+resource "yandex_compute_instance" "platform" {
+  name        = local.first_name_vm
+  platform_id = var.vm_web_platform_id
+  resources {
+    cores         = var.vm_web_resources.cores
+    memory        = var.vm_web_resources.memory
+    core_fraction = var.vm_web_resources.core_fraction
+  }
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+    }
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+
+  metadata = {
+    serial-port-enable = var.vm_metadata.serial_port
+    ssh-keys           = var.vm_metadata.ssh_keys
+  }
+
+}
+resource "yandex_compute_instance" "platform_db" {
+  name        = local.second_name_vm
+  platform_id = var.vm_db_platform_id
+  resources {
+    cores         = var.vm_db_resources.cores
+    memory        = var.vm_db_resources.memory
+    core_fraction = var.vm_db_resources.core_fraction
+  }
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+    }
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+
+  metadata = {
+    serial-port-enable = var.vm_metadata.serial_port
+    ssh-keys           = var.vm_metadata.ssh_keys
+  }
+```
+
+
 ## Задание 7
 1) 
 ```
