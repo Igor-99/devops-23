@@ -30,3 +30,16 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network & subnet name"
 }
+
+variable "project" {
+  type        = string
+  default     = "platform"
+}
+
+variable "role" {
+  type        = list(string)
+  default     = [
+    "web",
+    "db",
+    ]
+}

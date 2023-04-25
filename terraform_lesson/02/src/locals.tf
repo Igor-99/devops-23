@@ -1,4 +1,4 @@
 locals {
-  first_name_vm  = "netology-develop-platform-web"
-  second_name_vm = "netology-develop-platform-db"
+  first_name_vm  = "netology-${var.vpc_name}-${var.project}-${var.role[0]}"
+  second_name_vm = "netology-${var.vpc_name}-${var.project}-${var.role[1]}"
 }
