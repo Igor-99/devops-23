@@ -11,7 +11,11 @@
 ## Ответ:
 
 ![task_1_2](https://user-images.githubusercontent.com/29104612/234784213-6b743016-690a-47c2-a519-dfd8fdb86ba5.png)
+
+
 ![task_1_3](https://user-images.githubusercontent.com/29104612/234784225-4ead722d-ccb8-4d4e-ae04-d5af38e7a969.png)
+
+
 ![task_1_4](https://user-images.githubusercontent.com/29104612/234784237-e6f41568-e9ac-46a2-98f0-9eb61fdcd05f.png)
 
 
