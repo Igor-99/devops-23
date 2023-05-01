@@ -5,6 +5,17 @@ terraform {
     }
   }
   required_version = ">=0.13"
+  
+    backend "s3" {
+    endpoint = "storage.yandexcloud.net"
+    bucket = "bucket-name-dev"
+    region = "ru-central1-a"
+    key = "terraform.tfstate"
+    skip_region_validation = true
+    skip_credentials_validation = true
+    dynamodb_endpoint = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gd6skf5b8nefglqn67/etnk0e1tr0lss2tir509"
+    dynamodb_table = "tflock-develop"
+  }
 }
 
 provider "yandex" {
@@ -19,11 +30,8 @@ module "vpc_module" {
   source = "./vpc_module"
   vpc_name = "develop"
   vpc_subnet_name = "develop-ru-central1-a"
-  subnets = [
-    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
-    { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
-    { zone = "ru-central1-c", cidr = "10.0.3.0/24" },
-  ]
+  zone = "ru-central1-a"
+  cidr = ["10.0.1.0/24"]  
 }
 
 module "test-vm" {

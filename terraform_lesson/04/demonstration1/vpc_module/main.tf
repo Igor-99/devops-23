@@ -12,12 +12,10 @@ resource "yandex_vpc_network" "develop" {
 
 
 resource "yandex_vpc_subnet" "develop" {
-  count          = length(var.subnets)
   name           = var.vpc_subnet_name
-  zone           = var.subnets[count.index].zone
+  zone           = var.zone
   network_id     = yandex_vpc_network.develop.id
-  v4_cidr_blocks = [var.subnets[count.index].cidr]
-  HA             = true
+  v4_cidr_blocks = var.cidr
 }
 
 output "vpc" {
