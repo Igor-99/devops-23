@@ -44,8 +44,9 @@
 все отлично отработало
 ![1](https://github.com/Igor-99/devops-23/assets/29104612/2a1daf04-6419-4b56-acba-838b31a34a91)
 2. Если всё отработалось в рамках ожидания — выгрузите схемы workflow для импорта в XML. Файлы с workflow и скриншоты workflow приложите к решению задания.
+---
+[схема workflow для остальных статусов](./lesson/images/All.xml)
 
-[схема workflow для остальных статусов](./lesson/images/All.xml) 
 ---
 [схема workflow для статуса bug](./lesson/images/Bug.xml) 
 
