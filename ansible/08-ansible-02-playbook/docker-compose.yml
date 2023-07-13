@@ -1,8 +1,0 @@
-
-version: '3'
-services:
-  ubuntu:
-    image: pycontribs/ubuntu
-    container_name: ubuntu
-    restart: unless-stopped
-    entrypoint: "sleep infinity"

@@ -1,21 +1,9 @@
 ---
-ubt:
-  hosts:
-    ubuntu:
-      ansible_connection: docker
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_connection: docker
-
+      ansible_host: 84.252.143.0
 vector:
-  hosts:
+  hosts:      
     vector-01:
-      ansible_connection: docker
-      
-       
-
-
-
-
-
+      ansible_host: 84.201.176.175        
