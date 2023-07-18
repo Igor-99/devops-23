@@ -245,8 +245,10 @@ vector-01                  : ok=5    changed=0    unreachable=0    failed=0    s
 10. Выложите playbook в репозиторий.
 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 Ответ:
-[vector-role](git@github.com:Igor-99/vector-role.git)
-[lighthouse-role](git@github.com:Igor-99/lighthouse-role.git)
+
+[vector-role](https://github.com/Igor-99/vector-role) <br></p>
+[lighthouse-role](https://github.com/Igor-99/lighthouse-role) <br></p>
+[08-ansible-04-role](https://github.com/Igor-99/devops-23/tree/main/ansible/08-ansible-04-role/playbook) <br></p>
 
 ---
 
