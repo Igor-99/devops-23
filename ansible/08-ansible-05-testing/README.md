@@ -30,7 +30,8 @@ aragast/netology   latest    b453a84e3f7a   9 months ago   2.46GB
 1. Запустите  `molecule test -s centos_7` внутри корневой директории clickhouse-role, посмотрите на вывод команды. Данная команда может отработать с ошибками, это нормально. Наша цель - посмотреть как другие в реальном мире используют молекулу.
 
 <details><summary>Molecule centos7</summary>
-```
+    
+```shell
 molecule test -s centos_7
 ---
 dependency:
@@ -88,10 +89,12 @@ CRITICAL Failed to pre-validate.
 ```
 </details>
 
+
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
 
 <details><summary>Default</summary>
-```
+    
+```shell
 molecule init scenario --driver-name docker
 INFO     Initializing new scenario default...
 INFO     Initialized scenario in /home/ubuntu/devops-23/ansible/08-ansible-05-testing/playbook/roles/vector/molecule/de>
@@ -102,7 +105,8 @@ INFO     Initialized scenario in /home/ubuntu/devops-23/ansible/08-ansible-05-te
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
 
 <details><summary>Instances</summary>
-```
+    
+```shell
 platforms:
   - name: centos_8
     image: docker.io/pycontribs/centos:8
@@ -114,7 +118,8 @@ platforms:
 </details>
 
 <details><summary> Output </summary>
-```
+
+```shell
 molecule converge
 INFO     default scenario test matrix: dependency, create, prepare, converge
 INFO     Performing prerun...
@@ -221,7 +226,7 @@ ubuntu_latest              : ok=8    changed=7    unreachable=0    failed=0    s
 
 <details><summary> Output </summary>
 
-```
+```shell
 molecule test
 INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
 INFO     Performing prerun...
@@ -491,8 +496,10 @@ INFO     Pruning extra files from scenario ephemeral directory
 1. Добавьте в директорию с vector-role файлы из [директории](./example).
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash`, где path_to_repo — путь до корня репозитория с vector-role на вашей файловой системе.
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
+
 <details><summary> Output </summary>
-```
+    
+```shell
 docker run --privileged=True -v ~/devops-netology/homeworks/08-ansible-05-testing/playbook/roles/vector-role:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin
 /bash
 [root@c008ecd29165 vector-role]# tox
@@ -533,13 +540,16 @@ ERROR:   py39-ansible30: commands failed
 </details>
 
 5. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
-6. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
+6. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.  
 [tox.ini](https://github.com/Igor-99/vector-role/blob/master/tox.ini)
+
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
-9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.  
 [tag 1.2.1](https://github.com/Igor-99/vector-role/releases/tag/1.2.1)
 
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. В качестве решения пришлите ссылку на  ваш репозиторий и скриншоты этапов выполнения задания. 
+
+[08-ansible-05-testing](https://github.com/Igor-99/devops-23/tree/main/ansible/08-ansible-05-testing)
 
 ## Необязательная часть
 
