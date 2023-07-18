@@ -1,0 +1,24 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  remote_user: ubuntu
+  vars:
+    ansible_ssh_private_key_file: "/home/ubuntu/.ssh/id_rsa"
+  roles:
+    - clickhouse
+
+- name: Install Vector
+  hosts: vector
+  remote_user: ubuntu
+  vars:
+    ansible_ssh_private_key_file: "/home/ubuntu/.ssh/id_rsa"
+  roles:
+    - vector
+
+- name: Install lighthouse
+  hosts: lighthouse
+  remote_user: ubuntu
+  vars:
+    ansible_ssh_private_key_file: "/home/ubuntu/.ssh/id_rsa"
+  roles:
+    - lighthouse
