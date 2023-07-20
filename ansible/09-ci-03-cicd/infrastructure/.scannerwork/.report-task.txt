@@ -1,0 +1,6 @@
+projectKey=My-frozzy-project
+serverUrl=http://158.160.4.62:9000
+serverVersion=9.1.0.47736
+dashboardUrl=http://158.160.4.62:9000/dashboard?id=My-frozzy-project
+ceTaskId=AYe-e4fLW9fbuA6QL4DZ
+ceTaskUrl=http://158.160.4.62:9000/api/ce/task?id=AYe-e4fLW9fbuA6QL4DZ
