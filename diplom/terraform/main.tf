@@ -1,51 +1,101 @@
-provider "yandex" {
-  service_account_key_file = "~/terraform-key.json"
-  cloud_id                 = "b1gd6skf5b8nefglqn67"
-  folder_id                = "b1g1rl1omrd051h8ntsd"
-  zone                     = "ru-central1-a"
+resource "yandex_vpc_network" "develop" {
+  name = var.vpc_name
 }
+resource "yandex_vpc_subnet" "develop" {
+  name           = var.vpc_name
+  zone           = var.default_zone
+  network_id     = yandex_vpc_network.develop.id
+  v4_cidr_blocks = var.default_cidr
+}
+
 
 data "yandex_compute_image" "ubuntu" {
-  family = "ubuntu-2004-lts"
+  family = var.vm_family 
 }
-
-resource "yandex_vpc_network" "net" {
-  name = "net"
-}
-
-resource "yandex_vpc_subnet" "subnet" {
-  name           = "subnet"
-  network_id     = resource.yandex_vpc_network.net.id
-  v4_cidr_blocks = ["10.2.0.0/16"]
-  zone           = "ru-central1-a"
-}
-
 resource "yandex_compute_instance" "vm" {
-  name        = "netology"
-  hostname    = "netology.local"
-  platform_id = "standard-v1"
-
+  name        = "netology_01"
+  platform_id = "netology_01.local"
   resources {
-    cores         = 2
-    memory        = 2
-    core_fraction = 100
+    cores         = var.vm_01_resources.cores
+    memory        = var.vm_01_resources.memory
+    core_fraction = var.vm_01_resources.core_fraction
   }
-
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu.id
+      image_id = data.yandex_compute_image.ubuntu.image_id
       type     = "network-hdd"
       size     = "20"
     }
   }
-
+  scheduling_policy {
+    preemptible = true
+  }
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet.id
+    subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
     ipv6      = false
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys           = var.vm_metadata.ssh_keys
   }
+
+}
+resource "yandex_compute_instance" "vm2" {
+  name        = "netology_02"
+  platform_id = "netology_02.local"
+  resources {
+    cores         = var.vm_02_resources.cores
+    memory        = var.vm_02_resources.memory
+    core_fraction = var.vm_02_resources.core_fraction
+  }
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+      type     = "network-hdd"
+      size     = "20"
+    }
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+    ipv6      = false
+  }
+
+  metadata = {
+    ssh-keys           = var.vm_metadata.ssh_keys
+  }
+
+}
+resource "yandex_compute_instance" "vm3" {
+  name        = "netology_03"
+  platform_id = "netology_03.local"
+  resources {
+    cores         = var.vm_03_resources.cores
+    memory        = var.vm_03_resources.memory
+    core_fraction = var.vm_03_resources.core_fraction
+  }
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+      type     = "network-hdd"
+      size     = "20"
+    }
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+    ipv6      = false
+  }
+
+  metadata = {
+    ssh-keys           = var.vm_metadata.ssh_keys
+  }
+
 }
