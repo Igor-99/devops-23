@@ -1,5 +1,5 @@
 provider "yandex" {
-  service_account_key_file = "key.json"
+  service_account_key_file = "~/terraform-key.json"
   cloud_id                 = "b1gd6skf5b8nefglqn67"
   folder_id                = "b1g1rl1omrd051h8ntsd"
   zone                     = "ru-central1-a"
