@@ -6,7 +6,7 @@ variable "yc_token" {
 
 variable "yc_cloud_id" {
     description = "ID Yandex.Cloud"
-    default = "b1gd6skf5b8nefglqn67"
+    default = "b1gd6sk***********lqn67"
     sensitive = true
 }
 
