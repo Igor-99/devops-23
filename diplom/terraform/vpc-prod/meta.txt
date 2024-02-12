@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC45p4fvT8r37MiwjYhLVnxJEzIVUi+Nu8QrOBEFi76l9aHmqKdiZG/c9Y2dX0OFXq+cUrdapns29XtT8E2BUwZcoEz7ILgVLU6WDsBdukKx2oRed9iOvHw7LK+XjoUizEp5/XNoErD9AatQD5Rm60Mj3GOFFI1O7rYjeT7p1rZ3w3HuMBZap9hyykfdVX3W7Z+WBs/p+ShG/7+apkGJbMZ8t3VX1Xg5yUBfPG39vc1OOqDmypnALH8SA9fPYH2tUJceT35pRJNO8sOMXET1ujDIfhWHcNARdKU+oobTuhFEL1J4yNfxpeGNjgc9r+egJbBxYkbZvs0Oeva3UJ3EBInfKLR9rGr6MuaoAAHZBRKEM5cRedBKLK66qHq9WouVnSn1nfvGG0uoYHlvXBqQ1DbIvNi+bz0Lk2rWYWBCv0ICYLO12d+XhOKvKx6gwBRElSnNHun2gAWAk/GHLrScvW23POuZr2dbYt/fy+KQnMTz5vpfvmV4QCpfoAbiPJhzGs= ubuntu@terraform.ru-central1.internal
