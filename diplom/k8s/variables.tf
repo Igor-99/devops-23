@@ -1,6 +1,6 @@
 variable "yc_token" {
     description = "ID Yandex.Token"
-    default = "y0_AgAAAAAjne4yAATuwQAAAADXPxiPyjnWwRVFQYi03XWrnYerNk9lXPU"
+    default = "y0_AgA**************XWrnYerNk9lXPU"
     sensitive = true
 }
 
