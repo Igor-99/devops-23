@@ -56,25 +56,26 @@
 1. Создан сервисный аккаунт tf-state с правами editor 
 
 ---
-![d_1_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_1.png)
+![d_1_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_1.PNG)
+
 ---
 
 2. Подготовил [backend](https://app.terraform.io/app/revinii/workspaces/tf-stage/runs/run-bmScc1YWVtbjZmhi) для Terraform:
 
 ---
-![d_1_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_2.png)
+![d_1_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_2.PNG)
 ---
 
 3. Создайте VPC с подсетями в разных зонах доступности:
 
 ---
-![d_1_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_3.png)
+![d_1_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_3.PNG)
 ---
 
 4-5. Убедился:
 
 ---
-![d_1_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_4.png)
+![d_1_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_1_4.PNG)
 ---
 
 ---
@@ -115,11 +116,11 @@ ansible-playbook ~/kuberspray/cluster.yml -i ~/k8s/sample/k8s.ini --diff
 
 Результат работы:
 ---
-![d_2_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_2.png)
+![d_2_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_2.PNG)
 ---
-![d_2_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_3.png)
+![d_2_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_3.PNG)
 ---
-![d_2_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_4.png)
+![d_2_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_4.PNG)
 ---
 
 ---
@@ -165,15 +166,15 @@ COPY ./images/blue.jpg /usr/share/nginx/html/images/
 Создадим образ `nginx-stage` с помощью команды `docker build . -t revinii/nginx-stage`  и проверим созданный образ:
 
 ---
-![d_3_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_1.png)
+![d_3_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_1.PNG)
 ---
-![d_3_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_2.png)
+![d_3_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_2.PNG)
 ---
 
 Загрузим созданный образ в `Docker Hub`:
 
 ---
-![d_3_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_3.png)
+![d_3_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_3_3.PNG)
 ---
 
 Ссылка на загруженный образ в `Docker Hub`: [revinii/nginx-stage](https://hub.docker.com/repository/docker/revinii/nginx-stage/general)
@@ -209,7 +210,7 @@ COPY ./images/blue.jpg /usr/share/nginx/html/images/
 Скачал репозиторий `kube-prometeus release-0.11`:
 
 ---
-![d_4_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_1.png)
+![d_4_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_1.PNG)
 ---
 
 Так как нам необходимо организовать HTTP-доступ к web интерфейсу `Grafana`, перед установкой `kube-prometeus` изменим настройки сервиса `Grafana` и настройки сети `Grafana`:
@@ -283,15 +284,15 @@ spec:
 Создадим пространство имен и `CRD`:
 
 ---
-![d_4_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_2.png)
+![d_4_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_2.PNG)
 ---
-![d_4_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_3.png)
+![d_4_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_3.PNG)
 ---
 
 Проверяем работу сервса `Grafana`:
 
 ---
-![d_4_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_4.png)
+![d_4_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_4.PNG)
 ---
 
 Для деплоя тестового приложения, созданного на 3-м этапе используем `Qbec`
@@ -411,21 +412,21 @@ spec:
 Проверим созданные файлы на валидацию и развернем окружение:
 
 ---
-![d_4_5.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_5.png)
+![d_4_5.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_5.PNG)
 ---
 
 Результат выполнения:
 
 ---
-![d_4_6.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_6.png)
+![d_4_6.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_6.PNG)
 ---
 
 Проверяем доступность статического сайта:
 
 ---
-![d_4_7.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_7.png)
+![d_4_7.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_7.PNG)
 ---
-![d_4_8.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_8.png)
+![d_4_8.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_4_8.PNG)
 ---
 
 ### Установка и настройка CI/CD
@@ -459,7 +460,7 @@ spec:
 После создания инфраструктуры настраиваем сам сервер `Jenkins`  и настраиваем новый `Pipeline` для сборки и отправки в регистр Docker образа на основе репозитория с тестовым приложением:
 
 ---
-![d_5_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_1.png)
+![d_5_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_1.PNG)
 ---
 
 Так как нам необходимо, чтобы при каждом коммите происходила сборка образа, то указываем созданный на 2-м этапе репозиторий в пунктах `GitHub project` и  Управление конфигурацией`Git`, проверяем основную ветку репозитория, а так же отмечаем пункт `GitHub hook trigger for GITScm polling`
@@ -467,25 +468,25 @@ spec:
 Шаг сборки добавляем `Выполнить команду shell` и добавим тестовый скрипт:
 
 ---
-![d_5_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_2.png)
+![d_5_2.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_2.PNG)
 ---
 
 Для того, чтобы происходило отслеживание в репозитории, необходимо настроить `webhook` в самом репозитории:
 
 ---
-![d_5_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_3.png)
+![d_5_3.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_3.PNG)
 ---
 
 Первую сборку необходимо провести вручную. Проверяем тестовый скрипт:
 
 ---
-![d_5_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_4.png)
+![d_5_4.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_4.PNG)
 ---
 
 Изменим скрипт: пропишем в нем создание Docker-образа из Dockerfile, а так же отправим Docker-образ на `DockerHub`:
 
 ---
-![d_5_5.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_5.png)
+![d_5_5.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_5.PNG)
 ---
 
 Результат выполнения: [Jenkins Job 1](
@@ -493,15 +494,15 @@ spec:
 Проверим запись образа в DockerHub:
 
 ---
-![d_5_6.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_6.png)
+![d_5_6.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_6.PNG)
 ---
 
 Внесем изменения в файл `index.html` для проверки автоматической сборки:
 
 ---
-![d_5_7.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_7.png)
+![d_5_7.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_7.PNG)
 ---
-![d_5_8.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_8.png)
+![d_5_8.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_8.PNG)
 ---
 
 Происходит автоматический запуск сборки и размещения образа в `DockerHub`
@@ -578,13 +579,13 @@ local imageTag = std.extVar('image_tag');
 В `Jenkins` к нашему основному заданию добавим создание тегов и задачу тестовой проверки:
 
 ---
-![d_5_9.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_9.png)
+![d_5_9.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_9.PNG)
 ---
 
 Так же добавим, при положительном тестировании, а именно при необходимом нам теге, деплой приложения в кластер `Kubernetes`:
 
 ---
-![d_5_10.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_10.png)
+![d_5_10.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_10.PNG)
 ---
 
 Проведем тестирование с условием, что при теге `v0.1.10` произойдет деплой приложения в кластер `Kubernetes`:
@@ -592,24 +593,24 @@ local imageTag = std.extVar('image_tag');
 Дважды запустили задачу вручную, 7-я и 8-я сборка завершились неудачно, потому что не прошли тест
 
 ---
-![d_5_11.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_11.png)
+![d_5_11.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_11.PNG)
 ---
 
 Ссылка на [8-ю сборку]
 9-я и 10-я сборка пройдет в автоматическом режиме - дважды изменим файл `index.html` в репозитории:
 
 ---
-![d_5_12.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_12.png)
+![d_5_12.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_12.PNG)
 ---
 
 Проверим под в кластере `Kubernetes` и веб-страницу:
 
 ---
-![d_5_13.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_13.png)
+![d_5_13.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_13.PNG)
 ---
-![d_5_14.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_14.png)
+![d_5_14.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_14.PNG)
 ---
-![d_5_15.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_15.png)
+![d_5_15.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_5_15.PNG)
 ---
 
 
