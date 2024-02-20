@@ -1,0 +1,121 @@
+Started by user ubuntu
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/nginx-stage
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/nginx-stage/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Igor-99/nginx.git # timeout=10
+Fetching upstream changes from https://github.com/Igor-99/nginx.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > git fetch --tags --progress https://github.com/Igor-99/nginx.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 6bf0d9e872d802ae3556d6e4be927d1762d072da (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6bf0d9e872d802ae3556d6e4be927d1762d072da # timeout=10
+Commit message: "cheng"
+ > git rev-list --no-walk 6bf0d9e872d802ae3556d6e4be927d1762d072da # timeout=10
+[nginx-stage] $ /bin/sh -xe /tmp/jenkins6851136117744341546.sh
++ echo '--- START ---'
+--- START ---
++ cat index.html
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>NGINX</title>
+  </head>
+  <body bgcolor="#c0c0c0">
+  <h1 align=center color=green>Выбери таблетку</h1>
+    <h2 align=left color=red><a href="images/red.png">КРАСНАЯ</a></h2>
+    <h2 align=right color=blue><a href="images/blue.jpg">СИНЯЯ</a></h2>  
+  </body>
+</html>
++ sudo docker build . -t revinii/nginx-stage
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 325B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:latest
+#2 ...
+
+#3 [auth] library/nginx:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:latest
+#2 DONE 1.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/nginx:latest@sha256:c26ae7472d624ba1fafd296e73cecc4f93f853088e6a9c13c0d52f6ca5865107
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 341B done
+#6 DONE 0.0s
+
+#7 [3/6] RUN mkdir -p /usr/share/nginx/html/
+#7 CACHED
+
+#8 [4/6] COPY index.html /usr/share/nginx/html/
+#8 CACHED
+
+#9 [2/6] RUN rm -rf /usr/share/nginx/html/*
+#9 CACHED
+
+#10 [5/6] COPY ./images/red.png /usr/share/nginx/html/images/
+#10 CACHED
+
+#11 [6/6] COPY ./images/blue.jpg /usr/share/nginx/html/images/
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 writing image sha256:978665ef2791a5620c4dfe6917218096d9278cfff5dc4e927776476ce126d1d7 0.0s done
+#12 naming to docker.io/revinii/nginx-stage done
+#12 DONE 0.0s
++ sudo docker images
+REPOSITORY            TAG       IMAGE ID       CREATED          SIZE
+revinii/nginx-stage   latest    978665ef2791   21 minutes ago   187MB
++ sudo docker push revinii/nginx-stage:latest
+The push refers to repository [docker.io/revinii/nginx-stage]
+445987e8f2c9: Preparing
+9e9c4dbf053c: Preparing
+07f2fcde4283: Preparing
+f98c5dfc28be: Preparing
+fdc0498e47dd: Preparing
+61a7fb4dabcd: Preparing
+bcc6856722b7: Preparing
+188d128a188c: Preparing
+7d52a4114c36: Preparing
+3137f8f0c641: Preparing
+84619992a45b: Preparing
+ceb365432eec: Preparing
+61a7fb4dabcd: Waiting
+bcc6856722b7: Waiting
+188d128a188c: Waiting
+7d52a4114c36: Waiting
+3137f8f0c641: Waiting
+84619992a45b: Waiting
+ceb365432eec: Waiting
+07f2fcde4283: Pushed
+445987e8f2c9: Pushed
+fdc0498e47dd: Pushed
+f98c5dfc28be: Pushed
+9e9c4dbf053c: Pushed
+61a7fb4dabcd: Mounted from library/nginx
+188d128a188c: Mounted from library/nginx
+bcc6856722b7: Mounted from library/nginx
+7d52a4114c36: Mounted from library/nginx
+ceb365432eec: Layer already exists
+3137f8f0c641: Mounted from library/nginx
+84619992a45b: Mounted from library/nginx
+latest: digest: sha256:e05fccda1fcf2015cd8cdacb576ea144a9e317b22d3950b0af56b792b657ba8b size: 2817
++ echo '--- FINISH ---'
+--- FINISH ---
+Finished: SUCCESS

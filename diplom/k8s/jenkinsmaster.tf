@@ -1,11 +1,10 @@
-## masters.tf
+## jenkinsmaster.tf
 
-resource "yandex_compute_instance" "master" {
-  count = var.masters_count
-  folder_id = "${yandex_resourcemanager_folder.folder1.id}"
-  name = "${var.master}-${count.index+1}"
+resource "yandex_compute_instance" "jenkins-master01" {
+  folder_id = var.yc_folder_id
+  name = "jenkins-master-01"
   zone = var.yc_region_a
-  hostname = "${var.master}-${count.index+1}.ru-central1.internal"
+  hostname = "jenkins-master-01.ru-central1.internal"
 
   resources {
     cores  = 2
@@ -25,7 +24,6 @@ resource "yandex_compute_instance" "master" {
   }
 
   metadata = {
-    user-data = "${file("./meta.txt")}"
+    user-data = "${file("./jenkins.yml")}"
   }
 }
-

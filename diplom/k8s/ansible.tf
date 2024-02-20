@@ -10,7 +10,7 @@ resource "null_resource" "wait" {
 
 resource "null_resource" "cluster" {
   provisioner "local-exec" {
-    command = "ANSIBLE_FORCE_COLOR=1 ansible-playbook -i ./ansible/inventory.ini kuberspray.yml"
+    command = "ANSIBLE_FORCE_COLOR=1 ansible-playbook -i ./ansible/inventory.ini kuberspray.yml -u ubuntu"
   }
 
   depends_on = [
@@ -18,3 +18,12 @@ resource "null_resource" "cluster" {
   ]
 }
 
+resource "null_resource" "jenkins" {
+  provisioner "local-exec" {
+    command = "ANSIBLE_FORCE_COLOR=1 ansible-playbook -i ../jenkins/inventory/cicd/hosts.yml ../jenkins/site.yml -u ubuntu"
+  }
+
+  depends_on = [
+    null_resource.cluster
+  ]
+}

@@ -1,0 +1,13 @@
+#cloud-config
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyAMuQzLAfJpkK9/M9BxgiPUjNxWmXMZkuKUK9KC3Spom4qsg/+AmnGAWJhsHi0NgEt4i+BMfhSNe3xtZ3rVMxHSJ2M3nMu+I2wJLJgbhwRDLpO/hFwc+i6LSAvuDz2Oo9Nus1mG5UcHZhWUKiP6i45vuSAdyNyPTSzCopGy7IexfCD5/maxEemCOJW0sLIDATfV4m2g9UTbJBbNViYYKlYTtJd+dvWb2Em6HIrGWrjhHDfZQmQ2I9QiG6KFtiqWrECPiTm7dW+VLls8Lpx0iJfgbp9nS9amdveMSdP+KSUguEB614aNQtomwm5oKAMkGNyuJqLZaqqcsgolMwzzsAeWTUst+uNRan3JL0/ZVnoYwqu0fhQkeBOT7OK4DkcY9zbLeUrDza1CvJH2/Alrk+Kg9dEu0YDQvxu8vUe1ulCoa3lnnSHDn55gHJw+rwjaUdJEwmRzVhs+O/Qj7QrdN6obzqPvGkaOyAajzcdyTJBGHGf+mwuf11e9a6hKIzSds= ubuntu@server1
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDT8v3BvJ/cifLBwxPAiUHPgACSexon/aj+j9ffAb84oOZ7EBP1F3eUjq2ilGSblchzXmfXRNtmaD0HHaZ6EjDGCcMoMl2XahW2A4ITRWFO2ToGCbMi+oEaKoS1lBjXAd/15BMFSpk5pvjGsntFRBsT36rO1ccBoqkvla1sLYXcDW3gCAJhs3lgRlqhRe9rorrYqfeK1mEfnrx0YOmKOnVEg9xML0K7dg5AZLWcd3b+UmLiFiQ4KzRQQFnlZ+ZU3oIFaCWnB9IUAQqseQP9Hf0xqdGFbKi00cxT89qTihp7HLtS0h54eEW4apaptYYzYL/ikfHUIKSvFB/dA5h3L5kDM+rWVHwweNThd1/R7b1uoGhVTkTyAbEUBdzGhNOw99/gHzyb8yb+haa+Vpzr1mQRF0dEGDuJqfNPtlvAPh8341rI/ltYyFniktIDUJjphS46xQzKpGZ664J317+PeJGBdc78w2yaY2OBSYYzK3TPhXd45PQvhduaP5Z+Sok8uO0= root@server1
+#  - name: jenkins
+#    groups: sudo
+#    shell: /bin/bash
+#    sudo: ['ALL=(ALL) NOPASSWD:ALL']

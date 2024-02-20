@@ -1,8 +1,11 @@
 #!/bin/bash
 ## terraform.sh
 
-masters=1
-nodes=3
+# masters: количество создаваемых master-нод
+masters=<количество master-нод>
+
+# nodes: количество создаваемых worker-нод
+nodes=<количество worker-нод>
 
 ## inventory.tf
 
@@ -34,12 +37,21 @@ echo "    node-$i.ru-central1.internal ansible_host=\${yandex_compute_instance.n
 done
 
 cat << EOF >> inventory.tf
+    [jenkinsmaster]
+    jenkins-master-01.ru-central1.internal ansible_host=${yandex_compute_instance.jenkins-master01.network_interface.0.nat_ip_address}
+  
+    [jenkinsagent]
+    jenkins-agent-01.ru-central1.internal ansible_host=${yandex_compute_instance.jenkins-agent01.network_interface.0.nat_ip_address}
+
+
     DOC
   filename = "./ansible/inventory.ini"
 
   depends_on = [
     yandex_compute_instance.master,
-    yandex_compute_instance.node
+    yandex_compute_instance.node,
+    yandex_compute_instance.jenkins-master01,
+    yandex_compute_instance.jenkins-agent01
   ]
 }
 EOF
@@ -50,7 +62,7 @@ EOF
 cat << EOF > k8s.tf
 resource "local_file" "k8s" {
   content = <<-DOC
-
+ 
     # ## Configure 'ip' variable to bind kubernetes services on a
     # ## different ip than the default iface
     # ## We should set etcd_member_name for etcd cluster. The node that is not a etcd member do not need to set the value, or can set the empty$
