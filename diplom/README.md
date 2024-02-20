@@ -106,7 +106,9 @@
 
 Подключаемся к master-ноде и проверяем работу `ansible`:
 
-![d_2_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_1.png)
+---
+![d_2_1.png](https://github.com/Igor-99/devops-23/blob/main/diplom/img/d_2_1.PNG)
+---
 
  Запускаем на master-ноде создание кластера `Kubernetes` через `Kuberspray`:
 
